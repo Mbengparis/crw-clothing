@@ -3,7 +3,7 @@ import { useState } from "react";
 import FormInput from "../form-in/form-in.component";
 import Button from "../button/button.component";
 
-import './sign-up.styles.scss';
+import './sign-up-form.styles.scss';
 import { 
   createUserDocumentFromAuth,
   createAuthUserWithEmailAndPassword 
@@ -47,7 +47,7 @@ const SignUpForm = () => {
           );
         const userDocRef = await createUserDocumentFromAuth(user, { displayName });
         resetFormFields();
-
+         
       } catch (error) {
         if (error.code=='auth/email-already-in-use') {
           alert('Cannot create user, email already in use');
@@ -55,13 +55,12 @@ const SignUpForm = () => {
         if (error.code=='auth/weak-password') {
           alert('Password should be at least 6 characters');
         }
-        
         console.log('user creation encountered and error',error);
       }
     }  
        
     return (
-      <div>
+      <div className="sign-up-container">
         <h2>Don't have an account?</h2>
         <span>Sign up with your email and password</span>
         <form onSubmit={handleSubmit}>
