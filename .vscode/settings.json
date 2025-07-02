@@ -1,0 +1,4 @@
+{
+    "editor.gotoLocation.multipleTypeDefinitions": "peek",
+    "editor.gotoLocation.multipleDefinitions": "goto"
+}
